@@ -89,10 +89,23 @@ VALUES(1,'Peter','SejePeter@Gmail.com'),
 	(4,'torben','Torben@Gmail.com'),
 	(5,'Lars','Larslarsen@Gmail.com');
 	
+INSERT INTO Actor (actor_ID, actor_name)
+VALUES (1 ,'Hank Cruise'), (2, 'Arnold Weissnegger'), (3, 'Tina Kauffmann'), (4, 'David DeJoux'), (5, 'Mary E. Calloon');
+
+INSERT INTO Director (director_ID, director_name)
+VALUES (1, 'Tommy Kath'), (2, 'Stefan Spilberg'), (3, 'John Cameroff'), (4, 'Martin Scorjulia'), (5, 'Bob');
+
+INSERT INTO Movie (movie_ID, release_year, duration, genre, title, director_ID, actor_ID)
+VALUES (1, 2003, 120, 'action', 'Attack of the Cellphones: Talk Is Cheap', 1, 2),
+(2, 1992, 70, 'comedy', 'Do Not Die Laughing', 5, 3),
+(3, 2017, 120, 'romance', 'Love Loving Love', 3, 4),
+(4, 2020, 80, 'action', 'Kill Me Once, Die Twice', 4, 1),
+(5, 1999, 120, 'action', 'The End...For You', 2, 5);
+
 insert into IMAX (imax_id, imax_name, imax_location, sales_num, movie_ID)
-values (1, 'Empire Bio', 'Nørrebro', 10000, 1),
+values (1, 'Empire Bio', 'Nï¿½rrebro', 10000, 1),
 	(2, 'Imperial', 'Indre Kbh', 20000, 2),
-	(3, 'Hjørring Biocenter', 'Hjørring', 27, 3),
+	(3, 'Hjï¿½rring Biocenter', 'Hjï¿½rring', 27, 3),
 	(4, 'Lyngy Drive-In Bio', 'Lynge', 113, 4),
 	(5, 'Kino 1-2-3', 'Thisted', 921, 5);
 
