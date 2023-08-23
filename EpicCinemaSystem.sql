@@ -89,7 +89,26 @@ VALUES(1,'Peter','SejePeter@Gmail.com'),
 	(4,'torben','Torben@Gmail.com'),
 	(5,'Lars','Larslarsen@Gmail.com');
 	
+insert into IMAX (imax_id, imax_name, imax_location, sales_num, movie_ID)
+values (1, 'Empire Bio', 'Nørrebro', 10000, 1),
+	(2, 'Imperial', 'Indre Kbh', 20000, 2),
+	(3, 'Hjørring Biocenter', 'Hjørring', 27, 3),
+	(4, 'Lyngy Drive-In Bio', 'Lynge', 113, 4),
+	(5, 'Kino 1-2-3', 'Thisted', 921, 5);
 
+insert into Ticket (ticket_id, price, showing_id, participant_id)
+values (1, 100, 1, 1),
+	(2, 200, 2, 2),
+	(3, 300, 3, 3),
+	(4, 400, 4, 4),
+	(5, 500, 5, 5);
+
+insert into Showing (showing_id, showing_num, imax_Id, hall_id, ticket_id)
+values (1, 1, 1, 1, 1),
+	(2, 2, 2, 2, 2),
+	(3, 3, 3, 3, 3),
+	(4, 4, 4, 4, 4),
+	(5, 5, 5, 5, 5);
 
 
 SELECT * from Hall
