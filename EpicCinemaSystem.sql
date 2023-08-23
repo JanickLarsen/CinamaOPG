@@ -67,8 +67,7 @@ CREATE TABLE Showing (
 showing_ID int NOT NULL PRIMARY KEY,
 showing_num int, --Numbers of showings
 imax_ID int FOREIGN KEY REFERENCES Movie(movie_ID) NOT NULL,
-hall_ID int FOREIGN KEY REFERENCES Hall(hall_ID) NOT NULL,
-ticket_ID int FOREIGN KEY REFERENCES Ticket(ticket_ID) NOT NULL
+hall_ID int FOREIGN KEY REFERENCES Hall(hall_ID) NOT NULL
 );
 
 CREATE TABLE Actor_In_Movie (
@@ -108,7 +107,7 @@ INSERT INTO Director (director_ID, director_firstname, director_midname, directo
 VALUES (1, 'Tommy', '', 'Kath'), (2, 'Stefan', '', 'Spilberg'), (3, 'John', '', 'Cameroff'),
 	(4, 'Martin', '', 'Scorjulia'), (5, 'Bob', '', '');
 
-INSERT INTO Movie (movie_ID, release_year, duration, genre_category, title, director_ID, actor_ID)
+INSERT INTO Movie (movie_ID, release_year, duration, genre, title, director_ID, actor_ID)
 VALUES (1, 2003, 120, 'action', 'Attack of the Cellphones: Talk Is Cheap', 1, 2),
 (2, 1992, 70, 'comedy', 'Do Not Die Laughing', 5, 3),
 (3, 2017, 120, 'romance', 'Love Loving Love', 3, 4),
@@ -129,12 +128,12 @@ values (1, 100, 1, 1),
 	(4, 400, 4, 4),
 	(5, 500, 5, 5);
 
-insert into Showing (showing_id, showing_num, imax_id, hall_id, ticket_id)
-values (1, 1, 1, 1, 1),
-	(2, 2, 2, 2, 2),
-	(3, 3, 3, 3, 3),
-	(4, 4, 4, 4, 4),
-	(5, 5, 5, 5, 5);
+insert into Showing (showing_id, showing_num, imax_id, hall_id)
+values (1, 1, 1, 1),
+	(2, 2, 2, 2),
+	(3, 3, 3, 3),
+	(4, 4, 4, 4),
+	(5, 5, 5, 5);
 
 INSERT INTO Actor_In_Movie
 VALUES (1, 1, 1),
@@ -161,3 +160,4 @@ SELECT * from Ticket
 SELECT * from Showing
 SELECT * from Actor_In_Movie
 SELECT * from Director_Of_Movie
+select * from genre;
