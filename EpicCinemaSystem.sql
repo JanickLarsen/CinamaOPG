@@ -1,15 +1,17 @@
---USE master;
+use master
 
---DROP DATABASE epiccinesystemDB;
+IF EXISTS (SELECT * from sys.databases WHERE name =	'epiccinesystemDB')
+BEGIN
+	DROP DATABASE epiccinesystemDB;
+END;
+CREATE DATABASE epiccinesystemDB;
 
---CREATE DATABASE epiccinesystemDB;
-
-USE epiccinesystemDB;
+use epiccinesystemDB;
 
 CREATE TABLE Hall (
 hall_ID int NOT NULL PRIMARY KEY,
 seat_amnt tinyint NOT NULL, 
-CHECK (seat_amnt < 255)
+CHECK (seat_amnt <= 255)
 );
 
 CREATE TABLE Participant (
@@ -67,29 +69,36 @@ movie_ID int FOREIGN KEY REFERENCES Movie(movie_ID) NOT NULL,
 actor_ID int FOREIGN KEY REFERENCES Actor(actor_ID) NOT NULL
 );
 
-CREATE TABLE DirectorOfMovie (
+CREATE TABLE Director_Of_Movie (
 dom_ID int NOT NULL PRIMARY KEY,
 movie_ID int FOREIGN KEY REFERENCES Movie(movie_ID) NOT NULL,
 director_ID int FOREIGN KEY REFERENCES Director(director_ID) NOT NULL
 );
 
-SELECT *
-FROM Hall;
-SELECT *
-FROM Participant;
-SELECT *
-FROM Actor;
-SELECT *
-FROM Director;
-SELECT *
-FROM Movie;
-SELECT *
-FROM IMAX;
-SELECT *
-FROM Ticket;
-SELECT *
-FROM Showing;
-SELECT *
-FROM ActorInMovie;
-SELECT *
-FROM DirectorOfMovie;
+INSERT INTO HALL(hall_ID,seat_amnt)
+VALUES(1,200),
+	(2,233),
+	(3,250),
+	(4,100),
+	(5,155);
+	
+INSERT INTO Participant(participant_ID,participant_name,email)
+VALUES(1,'Peter','SejePeter@Gmail.com'),
+	(2,'Ole','GammleOle@Gmail.com'),
+	(3,'kaj','Kaj2001@Gmail.com'),
+	(4,'torben','Torben@Gmail.com'),
+	(5,'Lars','Larslarsen@Gmail.com');
+	
+
+
+
+SELECT * from Hall
+SELECT * from Participant
+SELECT * from Actor
+SELECT * from Director
+SELECT * from Movie
+SELECT * from IMAX
+SELECT * from Ticket
+SELECT * from Showing
+SELECT * from ActorInMovie
+SELECT * from DirectorOfMovie
