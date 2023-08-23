@@ -71,7 +71,7 @@ hall_ID int FOREIGN KEY REFERENCES Hall(hall_ID) NOT NULL,
 ticket_ID int FOREIGN KEY REFERENCES Ticket(ticket_ID) NOT NULL
 );
 
-CREATE TABLE ActorInMovie (
+CREATE TABLE Actor_In_Movie (
 aim_ID int NOT NULL PRIMARY KEY,
 movie_ID int FOREIGN KEY REFERENCES Movie(movie_ID) NOT NULL,
 actor_ID int FOREIGN KEY REFERENCES Actor(actor_ID) NOT NULL
@@ -116,9 +116,9 @@ VALUES (1, 2003, 120, 'action', 'Attack of the Cellphones: Talk Is Cheap', 1, 2)
 (5, 1999, 120, 'action', 'The End...For You', 2, 5);
 
 insert into IMAX (imax_id, imax_name, imax_location, sales_num, movie_ID)
-values (1, 'Empire Bio', 'N�rrebro', 10000, 1),
-	(2, 'Imperial', 'Indre Kbh', 20000, 2),
-	(3, 'Hj�rring Biocenter', 'Hj�rring', 27, 3),
+values (1, 'Empire Bio', 'Noerrebro', 10000, 1),
+	(2, 'Imperial', 'Indre KBH', 20000, 2),
+	(3, 'Hjoerring Biocenter', 'Hjoerring', 27, 3),
 	(4, 'Lyngy Drive-In Bio', 'Lynge', 113, 4),
 	(5, 'Kino 1-2-3', 'Thisted', 921, 5);
 
@@ -129,21 +129,21 @@ values (1, 100, 1, 1),
 	(4, 400, 4, 4),
 	(5, 500, 5, 5);
 
-insert into Showing (showing_id, showing_num, imax_Id, hall_id, ticket_id)
+insert into Showing (showing_id, showing_num, imax_id, hall_id, ticket_id)
 values (1, 1, 1, 1, 1),
 	(2, 2, 2, 2, 2),
 	(3, 3, 3, 3, 3),
 	(4, 4, 4, 4, 4),
 	(5, 5, 5, 5, 5);
 
-INSERT INTO ActorInMovie
+INSERT INTO Actor_In_Movie
 VALUES (1, 1, 1),
 (2, 2, 2),
 (3, 3, 3),
 (4, 4, 4),
 (5, 5, 5);
 
-INSERT INTO DirectorOfMovie
+INSERT INTO Director_Of_Movie
 VALUES (1, 1, 1),
 (2, 2, 2),
 (3, 3, 3),
@@ -159,5 +159,5 @@ SELECT * from Movie
 SELECT * from IMAX
 SELECT * from Ticket
 SELECT * from Showing
-SELECT * from ActorInMovie
-SELECT * from DirectorOfMovie
+SELECT * from Actor_In_Movie
+SELECT * from Director_Of_Movie
