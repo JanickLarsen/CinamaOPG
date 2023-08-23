@@ -8,6 +8,10 @@ CREATE DATABASE epiccinesystemDB;
 
 use epiccinesystemDB;
 
+CREATE TABLE Genre (
+genre_category varchar(50) NOT NULL PRIMARY KEY
+);
+
 CREATE TABLE Hall (
 hall_ID int NOT NULL PRIMARY KEY,
 seat_amnt tinyint NOT NULL, 
@@ -22,19 +26,23 @@ email varchar(64) NOT NULL
 
 CREATE TABLE Actor (
 actor_ID int NOT NULL PRIMARY KEY,
-actor_name varchar(32) NOT NULL
+actor_firstname varchar(32) NOT NULL,
+actor_midname varchar(32),
+actor_lastname varchar(32)
 );
 
 CREATE TABLE Director (
 director_ID int NOT NULL PRIMARY KEY,
-director_name varchar(32) NOT NULL
+director_firstname varchar(32) NOT NULL,
+director_midname varchar(32),
+director_lastname varchar(32)
 );
 
 CREATE TABLE Movie (
 movie_ID int NOT NULL PRIMARY KEY,
 release_year int NOT NULL,
 duration int NOT NULL,
-genre varchar(50) NOT NULL,
+genre varchar(50) FOREIGN KEY REFERENCES Genre(genre_category) NOT NULL,
 title varchar(255) NOT NULL,
 director_ID int FOREIGN KEY REFERENCES Director(director_ID) NOT NULL,
 actor_ID int FOREIGN KEY REFERENCES Actor(actor_ID) NOT NULL
@@ -75,6 +83,9 @@ movie_ID int FOREIGN KEY REFERENCES Movie(movie_ID) NOT NULL,
 director_ID int FOREIGN KEY REFERENCES Director(director_ID) NOT NULL
 );
 
+INSERT INTO Genre (genre_category)
+VALUES ('action'), ('comedy'), ('romance'), ('horror'), ('fantasy'), ('sci-fi'); 
+
 INSERT INTO HALL(hall_ID,seat_amnt)
 VALUES(1,200),
 	(2,233),
@@ -89,13 +100,15 @@ VALUES(1,'Peter','SejePeter@Gmail.com'),
 	(4,'torben','Torben@Gmail.com'),
 	(5,'Lars','Larslarsen@Gmail.com');
 	
-INSERT INTO Actor (actor_ID, actor_name)
-VALUES (1 ,'Hank Cruise'), (2, 'Arnold Weissnegger'), (3, 'Tina Kauffmann'), (4, 'David DeJoux'), (5, 'Mary E. Calloon');
+INSERT INTO Actor (actor_ID, actor_firstname, actor_midname, actor_lastname)
+VALUES (1 ,'Hank', '', 'Cruise'), (2, 'Arnold', '', 'Weissnegger'), (3, 'Tina', '', 'Kauffmann'),
+(4, 'David', '', 'DeJoux'), (5, 'Mary', 'E.', 'Calloon');
 
-INSERT INTO Director (director_ID, director_name)
-VALUES (1, 'Tommy Kath'), (2, 'Stefan Spilberg'), (3, 'John Cameroff'), (4, 'Martin Scorjulia'), (5, 'Bob');
+INSERT INTO Director (director_ID, director_firstname, director_midname, director_lastname)
+VALUES (1, 'Tommy', '', 'Kath'), (2, 'Stefan', '', 'Spilberg'), (3, 'John', '', 'Cameroff'),
+	(4, 'Martin', '', 'Scorjulia'), (5, 'Bob', '', '');
 
-INSERT INTO Movie (movie_ID, release_year, duration, genre, title, director_ID, actor_ID)
+INSERT INTO Movie (movie_ID, release_year, duration, genre_category, title, director_ID, actor_ID)
 VALUES (1, 2003, 120, 'action', 'Attack of the Cellphones: Talk Is Cheap', 1, 2),
 (2, 1992, 70, 'comedy', 'Do Not Die Laughing', 5, 3),
 (3, 2017, 120, 'romance', 'Love Loving Love', 3, 4),
