@@ -60,7 +60,7 @@ CREATE TABLE Ticket (
 ticket_ID int NOT NULL PRIMARY KEY,
 price decimal(6, 2) NOT NULL,
 showing_ID int,
-participant_ID int FOREIGN KEY REFERENCES Participant(participant_ID) NOT NULL
+participant_ID int FOREIGN KEY REFERENCES Participant(participant_ID) ON DELETE CASCADE NOT NULL
 );
 
 CREATE TABLE Showing (
@@ -149,6 +149,7 @@ VALUES (1, 1, 1),
 (4, 4, 4),
 (5, 5, 5);
 
+DELETE FROM Participant WHERE participant_ID = 3;
 
 SELECT * from Hall
 SELECT * from Participant
