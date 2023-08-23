@@ -123,6 +123,20 @@ values (1, 1, 1, 1, 1),
 	(4, 4, 4, 4, 4),
 	(5, 5, 5, 5, 5);
 
+INSERT INTO ActorInMovie
+VALUES (1, 1, 1),
+(2, 2, 2),
+(3, 3, 3),
+(4, 4, 4),
+(5, 5, 5);
+
+INSERT INTO DirectorOfMovie
+VALUES (1, 1, 1),
+(2, 2, 2),
+(3, 3, 3),
+(4, 4, 4),
+(5, 5, 5);
+
 
 SELECT * from Hall
 SELECT * from Participant
